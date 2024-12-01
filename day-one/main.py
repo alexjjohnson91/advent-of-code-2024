@@ -6,7 +6,7 @@ def log(msg):
 
 
 if __name__ == "__main__":
-    solution = solution()
-    result = solution.add(2, 2)
-
-    log(result)
+    solution = solution([], [])
+    solution.get_arrays("input.txt")
+    print(solution.get_distance())
+    print(solution.get_similarity())
