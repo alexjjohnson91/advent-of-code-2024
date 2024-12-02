@@ -12,7 +12,6 @@ class solution:
                 self.unsafe_levels += 1
         return self.safe_levels
 
-    # determine whether the array is ascending or descending and send to appropriate function
     def get_safe_level(self, level):
         for i in range(1, len(level)):
             prev = level[i - 1]
