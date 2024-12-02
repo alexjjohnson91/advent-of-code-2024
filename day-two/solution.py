@@ -1,15 +1,12 @@
 class solution:
-    def __init__(self, a, safe_levels, unsafe_levels):
+    def __init__(self, a, safe_levels):
         self.a = a
         self.safe_levels = safe_levels
-        self.unsafe_levels = unsafe_levels
 
     def get_safe_levels(self):
         for i in range(len(self.a)):
             if self.get_safe_level(self.a[i]) == True:
                 self.safe_levels += 1
-            else:
-                self.unsafe_levels += 1
         return self.safe_levels
 
     def get_safe_level(self, level):

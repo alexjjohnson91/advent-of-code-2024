@@ -4,9 +4,9 @@ from solution import solution
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
-        self.solution = solution([], 0, 0)
+        self.solution = solution([], 0)
         self.solution.get_levels("test_input.txt")
-        self.solution_two = solution([], 0, 0)
+        self.solution_two = solution([], 0)
         self.solution_two.get_levels("test_input_2.txt")
 
     def test_safe_levels(self):
