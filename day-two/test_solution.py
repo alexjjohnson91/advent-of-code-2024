@@ -11,7 +11,7 @@ class TestSolution(unittest.TestCase):
 
     def test_safe_levels(self):
         # Arrange
-        expected_safe = 2
+        expected_safe = 4
 
         # Act
         actual_safe = self.solution.get_safe_levels()
@@ -21,7 +21,7 @@ class TestSolution(unittest.TestCase):
 
     def test_safe_levels_two(self):
         # Arrange
-        expected_safe = 5
+        expected_safe = 13
 
         # Act
         actual_safe = self.solution_two.get_safe_levels()

@@ -4,9 +4,15 @@ class solution:
         self.safe_levels = safe_levels
 
     def get_safe_levels(self):
-        for i in range(len(self.a)):
-            if self.get_safe_level(self.a[i]) == True:
+        for report in self.a:
+            if self.get_safe_level(report) == True:
                 self.safe_levels += 1
+            else:
+                for number in range(len(report)):
+                    new = report[:number] + report[number + 1 :]
+                    if self.get_safe_level(new) == True:
+                        self.safe_levels += 1
+                        break
         return self.safe_levels
 
     def get_safe_level(self, level):
@@ -40,7 +46,6 @@ class solution:
                 i += 1
         return True
 
-        
     def get_safe_level_desc(self, level):
         i = 1
         while i < len(level):
@@ -56,8 +61,8 @@ class solution:
             elif abs(prev - curr) > 3:
                 print("range is broken")
                 return False
-            else: 
-                i += 1 
+            else:
+                i += 1
         return True
 
     def get_levels(self, file_name):
