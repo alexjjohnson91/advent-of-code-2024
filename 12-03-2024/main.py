@@ -1,12 +1,7 @@
 from solution import solution
 
-
-def log(msg):
-    print(msg)
-
-
 if __name__ == "__main__":
-    solution = solution([], [])
-    solution.get_arrays("input.txt")
-    print(solution.get_distance())
-    print(solution.get_similarity())
+    day_three_solution = solution("input.txt")
+    day_three_solution.get_matches_recursive(day_three_solution.text, True)
+
+    print(day_three_solution.get_result())
