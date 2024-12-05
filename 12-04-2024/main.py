@@ -1,7 +1,6 @@
 from solution import solution
 
 if __name__ == "__main__":
-    day_three_solution = solution("input.txt")
-    day_three_solution.get_matches_recursive(day_three_solution.text, True)
-
-    print(day_three_solution.get_result())
+    day_four_solution = solution("input.txt")
+    print("part 1: ", day_four_solution.find_words())
+    print("part 2: ", day_four_solution.count_xmas())
