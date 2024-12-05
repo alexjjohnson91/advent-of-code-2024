@@ -7,15 +7,21 @@ class solution:
     def get_pages(self):
         return 0
         
-    def print_rules(self, page_number):
-        for rule in self.get_rules_for_page(page_number):
-            print(rule)
+    def print_rules(self):
+        for update in self.updates:
+            print("Current Update: ", update)
+            for page_number in update:
+                print("Rules for: " + str(page_number))
+                print(self.get_rules_for_page(page_number))
+
+        return 0
 
     def get_rules(self, file):
         rules = []
         for line in file: 
             if line.strip():
-                rules.append(line)
+                numbers = [int(num) for num in line.strip().split('|')]
+                rules.append(numbers)
             else:
                 break
 
@@ -23,11 +29,12 @@ class solution:
 
     def get_rules_for_page(self, page_number):
         rules_for_page = []
-        for rule in self.rules: 
-            if str(page_number) in rule:
+        for rule in self.rules:
+            if page_number in rule:
                 rules_for_page.append(rule)
 
         return rules_for_page
+                
 
     def get_updates(self, file):
         updates = []
