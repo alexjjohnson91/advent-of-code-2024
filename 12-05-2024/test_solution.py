@@ -8,7 +8,7 @@ class TestSolution(unittest.TestCase):
 
     def test_solution(self):
         expected = 143
-        actual = self.solution.get_pages()
+        actual = self.solution.count_middle_pages()
         self.assertEqual(actual, expected)
 
 
