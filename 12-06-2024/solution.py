@@ -1,3 +1,5 @@
+import time
+
 class solution:
     def __init__(self, file_name):
         self.board = []
@@ -50,7 +52,7 @@ class solution:
         if self.board[self.current_x][self.current_y] == ".":
             self.distinct_positions += 1
         self.set_current_pos("^")
-        self.board[self.current_x + 1][self.current_y] = "X"
+        self.board[self.current_x + 1][self.current_y] = "|"
         return
 
     def move_down(self):
@@ -58,7 +60,7 @@ class solution:
         if self.board[self.current_x][self.current_y] == ".":
             self.distinct_positions += 1
         self.set_current_pos("V")
-        self.board[self.current_x - 1][self.current_y] = "X"
+        self.board[self.current_x - 1][self.current_y] = "|"
         return
 
     def move_right(self):
@@ -66,7 +68,7 @@ class solution:
         if self.board[self.current_x][self.current_y] == ".":
             self.distinct_positions += 1
         self.set_current_pos(">")
-        self.board[self.current_x][self.current_y - 1] = "X"
+        self.board[self.current_x][self.current_y - 1] = "-"
         return
 
     def move_left(self):
@@ -74,18 +76,38 @@ class solution:
         if self.board[self.current_x][self.current_y] == ".":
             self.distinct_positions += 1
         self.set_current_pos("<")
-        self.board[self.current_x][self.current_y + 1] = "X"
+        self.board[self.current_x][self.current_y + 1] = "-"
         return
 
     def turn_right(self):
         if self.board[self.current_x][self.current_y] == "^":
             self.set_current_pos(">")
+            self.current_y += 1
+            if self.board[self.current_x][self.current_y] == ".":
+                self.distinct_positions += 1
+            self.set_current_pos(">")
+            self.board[self.current_x][self.current_y - 1] = "+"
         elif self.board[self.current_x][self.current_y] == ">":
             self.set_current_pos("V")
+            self.current_x += 1
+            if self.board[self.current_x][self.current_y] == ".":
+                self.distinct_positions += 1
+            self.set_current_pos("V")
+            self.board[self.current_x - 1][self.current_y] = "+"
         elif self.board[self.current_x][self.current_y] == "V":
             self.set_current_pos("<")
+            self.current_y -= 1
+            if self.board[self.current_x][self.current_y] == ".":
+                self.distinct_positions += 1
+            self.set_current_pos("<")
+            self.board[self.current_x][self.current_y + 1] = "+"
         elif self.board[self.current_x][self.current_y] == "<":
             self.set_current_pos("^")
+            self.current_x -= 1
+            if self.board[self.current_x][self.current_y] == ".":
+                self.distinct_positions += 1
+            self.set_current_pos("^")
+            self.board[self.current_x + 1][self.current_y] = "+"
 
 
     def get_distinct_positions(self):
@@ -97,7 +119,8 @@ class solution:
                 self.turn_right()
             else:
                 self.move_forward()
-            print(self.distinct_positions)
+            self.print_board()
+            time.sleep(1)
         return self.distinct_positions
 
     def get_current_pos(self):
